@@ -1,0 +1,9 @@
+a:hover {
+    opacity: 1; /* Làm rõ hơn khi hover */
+    font-weight: bold; /* Chữ đậm hơn */
+    text-decoration: underline; /* Thêm gạch chân */
+    color: #000; /* Đổi màu chữ (tùy chọn) */
+}
+p a:hover {
+    color: #0056b3; /* Đổi màu chữ khi hover nếu cần */
+}

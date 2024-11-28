@@ -1,0 +1,14 @@
+.cards {
+    width: 100%;
+    padding: 35px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Mcard {
+    width: 250px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
