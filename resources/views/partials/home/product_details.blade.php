@@ -46,12 +46,13 @@
     <div class="info">
         <div class="product-info">
             <h1 class="product-title">{{ $productDetail->title }}</h1>
-            <p class="product-price">{{ $productDetail->price }}đ</p>
+            <p class="product-price">{{ number_format($productDetail->price, 0, ',', '.') }}₫</p>
             <p class="product-description">
                 {{ $productDetail->description }}
             </p>
-            <form class="product-form" method="POST" action="">
+            <form class="product-form" method="POST" action="{{ route('cart.add') }}">
                 @csrf
+                <input type="hidden" name="id" value="{{ $productDetail->id }}">
                 <div class="size-selector">
                     <label for="size">Size:</label>
                     <select name="size" id="size" required>

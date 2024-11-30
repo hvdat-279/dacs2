@@ -12,7 +12,7 @@
             <ul class="nav-links">
                 <li><a href="{{ route('home') }}"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
                 <li>
-                    <a href="">
+                    <a href="#products">
                         <i class="fa-solid fa-server"></i> Sản phẩm <i class="fa-solid fa-angle-down angle-icon"></i>
                     </a>
                     <div class="sub-menu">
@@ -35,7 +35,9 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <button class="shoppingCart">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping"></i>
+                    <span>{{ $cart->getTotalQuantity() }}</span>
+                </a>
             </button>
             @if (Auth::check())
             <div class="dropdown">

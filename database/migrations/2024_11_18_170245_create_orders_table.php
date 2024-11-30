@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade'); // Foreign key to users
-            $table->string('status')->default('pending'); // Order status
-            $table->string('payment_method')->nullable(); // Payment method
-            $table->decimal('total_amount', 10, 2); // Total order amount
-            $table->string('shipping_address')->nullable(); // Shipping address
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->string('status')->default('pending');
+            $table->string('payment_method')->nullable();
+            $table->decimal('total_amount', 10, 2);
+            $table->string('shipping_address')->nullable();
             $table->timestamps();
         });
     }

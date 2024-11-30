@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone', 15)->default('');;
             $table->text('address')->default('');;
             $table->string('role')->default('user');
+            $table->string('img')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->timestamps();

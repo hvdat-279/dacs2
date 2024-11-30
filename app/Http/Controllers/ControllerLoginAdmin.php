@@ -30,7 +30,7 @@ class ControllerLoginAdmin extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('home');
+            return redirect()->intended('home')->with('success', 'Chào mừng bạn quay trở lại!');
         }
 
         return back()->with('error', "Đăng nhập thất bại!");
@@ -38,7 +38,7 @@ class ControllerLoginAdmin extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Bạn đã đăng xuất!');
     }
 
     // Hiển thị form đăng ký
@@ -129,7 +129,7 @@ class ControllerLoginAdmin extends Controller
     public function postLoginAdmin(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'admin'])) {
-            return redirect()->route('admin.home');
+            return redirect()->route('admin.home')->with('success', 'Chào mừng bạn quay trở lại!');
         } else {
             return redirect()->back()->with('err', 'Bạn không có quyền truy cập vào admin');
         }
@@ -138,6 +138,6 @@ class ControllerLoginAdmin extends Controller
     public function logoutAdmin()
     {
         Auth::logout();
-        return redirect()->route("loginAdmin");
+        return redirect()->route("loginAdmin")->with('error', ' Thoát thành công!');
     }
 }

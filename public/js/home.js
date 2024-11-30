@@ -227,5 +227,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Khởi tạo các component
     initSlider();
-    initProductCarousels();
 });

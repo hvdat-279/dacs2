@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ControllerLoginAdmin;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ShoppingCartController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -36,16 +37,20 @@ Route::prefix('/home')->group(
 
         Route::get('/product', [HomeController::class, 'showCategoryProducts'])->name('products');
         Route::get('/product_details', [HomeController::class, 'showProductDetail'])->name('product.details');
-        Route::get('/shopping_cart', function () {
-            return view('partials.home.shopping_cart');
-        });
 
 
-        Route::prefix('/profile')->group(function () {
-
-            Route::get('/', [UserController::class, 'showProfile'])->name('profile');
-            Route::get('/edit', [UserController::class, 'editProfile'])->name('profile.edit');
-            Route::post('/edit', [UserController::class, 'updateProfile'])->name('profile.update');
+        Route::prefix('/')->middleware('user')->group(function () {
+            Route::prefix('cart')->group(
+                function () {
+                    Route::get('/', [ShoppingCartController::class, 'index'])->name('cart');
+                    Route::post('/add-cart', [ShoppingCartController::class, 'add'])->name('cart.add');
+                    Route::get('/delete-cart/{id}', [ShoppingCartController::class, 'deleteCart'])->name('cart.delete');
+                    Route::get('/update-cart/{id}', [ShoppingCartController::class, 'updateCart'])->name('cart.update');
+                }
+            );
+            Route::get('profile', [UserController::class, 'showProfile'])->name('profile');
+            Route::get('profile/edit', [UserController::class, 'editProfile'])->name('profile.edit');
+            Route::post('profile/edit', [UserController::class, 'updateProfile'])->name('profile.update');
         });
     }
 );

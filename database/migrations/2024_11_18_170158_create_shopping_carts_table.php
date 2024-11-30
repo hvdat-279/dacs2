@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('shopping_cart_items', function (Blueprint $table) {
-            $table->id();  // Khoá chính của bảng
+            $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');  // Khoá ngoại liên kết với bảng products
-            $table->string('size');  // Kích cỡ của sản phẩm
-            $table->integer('quantity');  // Số lượng sản phẩm
-            $table->timestamps();  // Thời gian tạo và cập nhật
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->string('size');
+            $table->integer('quantity');
+            $table->timestamps();
         });
     }
 

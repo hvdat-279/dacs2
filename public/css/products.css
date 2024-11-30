@@ -35,7 +35,7 @@ body {
 
 .products-main {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     width: 100%;
 }
@@ -299,6 +299,7 @@ body {
     }
     .products-main {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     .card {
         padding: 8px;
@@ -325,6 +326,7 @@ body {
     }
     .products-main {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     .card {
         margin: 0 auto;
@@ -332,17 +334,6 @@ body {
 }
 
 /* Responsive Design */
-@media screen and (min-width: 1200px) {
-    .products-main {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media screen and (max-width: 1199px) {
-    .products-main {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 @media screen and (max-width: 992px) {
     .product-wrapper {
@@ -367,6 +358,7 @@ body {
 
     .products-main {
         grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
     }
 
     .toggle-filters-btn {
@@ -389,7 +381,7 @@ body {
 @media screen and (max-width: 768px) {
     .products-main {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .products-header {
@@ -414,6 +406,7 @@ body {
 
     .products-main {
         grid-template-columns: repeat(1, 1fr);
+        gap: 1.5rem;
     }
 
     .filter-sidebar {

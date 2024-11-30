@@ -79,7 +79,7 @@ return [
     */
 
     // 'locale' => env('APP_LOCALE', 'en'),
-    'locale' => 'vi',
+    'locale' => 'vi', // thông báo lỗi tiếng việt
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
